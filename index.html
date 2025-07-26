@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <!-- =================================================================== -->
+    <!-- METADATA & BROWSER CONFIGURATION                                    -->
+    <!-- =================================================================== -->
+    <meta charset="UTF-8" />
+    <!-- Sets character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ensures the site is responsive on all devices -->
+    <title>Muhammad Najil C M - Data Analyst Portfolio</title>
+    <!-- The title that appears in the browser tab -->
+
+    <!-- =================================================================== -->
+    <!-- STYLESHEETS & FONTS                                                 -->
+    <!-- =================================================================== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Loads Tailwind CSS for styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Preconnects to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Imports the 'Inter' font -->
+
+    <!-- Links to your external stylesheet where custom styles are defined -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- =================================================================== -->
+    <!-- DARK MODE SCRIPT                                                    -->
+    <!-- This script runs before the page loads to prevent a "flash" of      -->
+    <!-- the wrong theme. It checks user's preference and applies dark mode. -->
+    <!-- =================================================================== -->
+    <script>
+      // Check if dark mode is saved in localStorage or if the user's system prefers dark mode.
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark"); // Apply the 'dark' class to the root HTML element
+      } else {
+        document.documentElement.classList.remove("dark"); // Remove the 'dark' class
+      }
+    </script>
+  </head>
+  <body class="bg-slate-50 dark:bg-gray-900 text-gray-800 dark:text-slate-200">
+    <!-- =================================================================== -->
+    <!-- HEADER & NAVIGATION                                                 -->
+    <!-- This is the main navigation bar at the top of the page.             -->
+    <!-- =================================================================== -->
+    <header
+      id="main-header"
+      class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md dark:shadow-gray-700/50"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <!-- Home Icon Link: Clicking this takes the user to the top of the page. -->
+          <a
+            href="#"
+            id="home-link"
+            class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke-width="1.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5"
+              />
+            </svg>
+          </a>
+          <div class="flex items-center">
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8">
+              <a
+                href="#skills"
+                class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                >Skills</a
+              >
+              <a
+                href="#certifications"
+                class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                >Certifications</a
+              >
+              <a
+                href="#projects"
+                class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                >Projects</a
+              >
+              <a
+                href="#about"
+                class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                >About</a
+              >
+              <a
+                href="#contact"
+                class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                >Contact</a
+              >
+            </nav>
+            <!-- Dark Mode Toggle Button -->
+            <button
+              id="theme-toggle"
+              type="button"
+              class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 ml-4"
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+            <!-- Mobile Menu Hamburger Button -->
+            <button
+              id="mobile-menu-button"
+              class="md:hidden focus:outline-none ml-3"
+            >
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800">
+        <a
+          href="#skills"
+          class="block py-2 px-6 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+          >Skills</a
+        >
+        <a
+          href="#certifications"
+          class="block py-2 px-6 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+          >Certifications</a
+        >
+        <a
+          href="#projects"
+          class="block py-2 px-6 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+          >Projects</a
+        >
+        <a
+          href="#about"
+          class="block py-2 px-6 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+          >About</a
+        >
+        <a
+          href="#contact"
+          class="block py-2 px-6 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+          >Contact</a
+        >
+      </div>
+    </header>
+
+    <!-- =================================================================== -->
+    <!-- MAIN PORTFOLIO CONTENT WRAPPER                                      -->
+    <!-- This div contains all the main sections of the portfolio.           -->
+    <!-- =================================================================== -->
+    <div id="main-content">
+      <main class="pt-24">
+        <!-- HERO SECTION: The main introduction to your portfolio. -->
+        <section
+          id="home"
+          class="container mx-auto px-6 py-20 md:py-32 text-center"
+        >
+          <div class="max-w-4xl mx-auto">
+            <h1
+              class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-4"
+            >
+              Muhammad Najil C M
+            </h1>
+            <p
+              class="text-xl md:text-2xl text-blue-600 dark:text-blue-400 font-semibold mb-8"
+            >
+              Data Analyst
+            </p>
+            <p
+              class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+            >
+              A detail-oriented Data Analyst with a passion for uncovering
+              actionable insights from complex datasets. I specialize in
+              transforming raw data into compelling stories that drive strategic
+              business decisions.
+            </p>
+            <div class="mt-12 flex flex-wrap justify-center gap-4">
+              <a
+                href="#projects"
+                class="bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-transform transform hover:scale-105 border border-blue-200 dark:border-gray-600"
+                >View My Work</a
+              >
+              <!-- CV Download Link: Make sure to place your CV file at this path or update the path. -->
+              <a
+                href="./assets/muhammad_najil_cm_cv.pdf"
+                download="Muhammad_Najil_CM_CV.pdf"
+                class="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-600 transition-transform transform hover:scale-105"
+                >Download CV</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS SECTION: Showcase your technical skills. -->
+        <section id="skills" class="bg-white dark:bg-gray-800 py-20 md:py-24">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
+              >
+                Core Competencies
+              </h2>
+              <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">
+                The tools and technologies I use to bring data to life.
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
+            >
+              <!-- Skill Card: You can copy and paste this block to add more skills. -->
+              <div
+                class="skill-card bg-slate-50 dark:bg-gray-700 p-8 rounded-xl text-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+                  alt="Python Logo"
+                  class="h-20 w-20 mx-auto mb-4"
+                />
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+                  Python
+                </h3>
+              </div>
+              <div
+                class="skill-card bg-slate-50 dark:bg-gray-700 p-8 rounded-xl text-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg"
+                  alt="Power BI Logo"
+                  class="h-20 w-20 mx-auto mb-4"
+                />
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+                  Power BI
+                </h3>
+              </div>
+              <div
+                class="skill-card bg-slate-50 dark:bg-gray-700 p-8 rounded-xl text-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg"
+                  alt="Excel Logo"
+                  class="h-20 w-20 mx-auto mb-4"
+                />
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+                  Excel
+                </h3>
+              </div>
+              <div
+                class="skill-card bg-slate-50 dark:bg-gray-700 p-8 rounded-xl text-center"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/303229/sql-database-generic-logo.svg"
+                  alt="SQL Logo"
+                  class="h-20 w-20 mx-auto mb-4"
+                />
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+                  SQL
+                </h3>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CERTIFICATIONS SECTION: List your professional certifications. -->
+        <section
+          id="certifications"
+          class="py-20 md:py-24 bg-slate-50 dark:bg-gray-900"
+        >
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
+              >
+                Certifications & Credentials
+              </h2>
+              <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">
+                My professional certifications and qualifications.
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+            >
+              <!-- Certification Card: Copy this block to add more certifications. Update the link in `href`. -->
+              <div
+                class="cert-card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex items-center"
+              >
+                <div class="mr-6 flex-shrink-0">
+                  <svg
+                    class="w-16 h-16 text-blue-500 dark:text-blue-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3
+                    class="text-xl font-bold mb-1 text-gray-900 dark:text-white"
+                  >
+                    Google Data Analytics Professional Certificate
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400 mb-3">
+                    Issued by: Coursera & Google
+                  </p>
+                  <a
+                    href="#"
+                    class="font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                    >View Credential &rarr;</a
+                  >
+                </div>
+              </div>
+              <div
+                class="cert-card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex items-center"
+              >
+                <div class="mr-6 flex-shrink-0">
+                  <svg
+                    class="w-16 h-16 text-blue-500 dark:text-blue-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3
+                    class="text-xl font-bold mb-1 text-gray-900 dark:text-white"
+                  >
+                    Microsoft Power BI Data Analyst Associate
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400 mb-3">
+                    Issued by: Microsoft
+                  </p>
+                  <a
+                    href="#"
+                    class="font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                    >View Credential &rarr;</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS SECTION: A gallery of your work. -->
+        <section id="projects" class="bg-white dark:bg-gray-800 py-20 md:py-24">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
+              >
+                Portfolio Projects
+              </h2>
+              <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">
+                A selection of my work. Click on a project to see more details.
+              </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <!-- Project Card 1: `data-project="1"` links this to the first project page. -->
+              <div
+                class="project-card bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden"
+                data-project="1"
+              >
+                <img
+                  src="https://placehold.co/600x400/3b82f6/ffffff?text=Sales+Dashboard"
+                  alt="Project 1 placeholder image"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-6">
+                  <h3
+                    class="text-xl font-bold mb-2 text-gray-900 dark:text-white"
+                  >
+                    Interactive Sales Dashboard
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400 mb-4">
+                    Developed a dynamic sales dashboard in Power BI to track
+                    KPIs, sales trends, and regional performance.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900/50 dark:text-blue-300"
+                      >Power BI</span
+                    >
+                    <span
+                      class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full dark:bg-gray-600 dark:text-gray-200"
+                      >SQL</span
+                    >
+                    <span
+                      class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900/50 dark:text-green-300"
+                      >Excel</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- Project Card 2 -->
+              <div
+                class="project-card bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden"
+                data-project="2"
+              >
+                <img
+                  src="https://placehold.co/600x400/10b981/ffffff?text=Customer+Analysis"
+                  alt="Project 2 placeholder image"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-6">
+                  <h3
+                    class="text-xl font-bold mb-2 text-gray-900 dark:text-white"
+                  >
+                    Customer Churn Analysis
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400 mb-4">
+                    Utilized Python to build a predictive model for identifying
+                    customers at risk of churning.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900/50 dark:text-yellow-300"
+                      >Python</span
+                    >
+                    <span
+                      class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full dark:bg-gray-600 dark:text-gray-200"
+                      >SQL</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- Project Card 3 -->
+              <div
+                class="project-card bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden"
+                data-project="3"
+              >
+                <img
+                  src="https://placehold.co/600x400/8b5cf6/ffffff?text=Data+Cleaning"
+                  alt="Project 3 placeholder image"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-6">
+                  <h3
+                    class="text-xl font-bold mb-2 text-gray-900 dark:text-white"
+                  >
+                    Automated Data Cleaning Pipeline
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400 mb-4">
+                    Wrote SQL queries and Python scripts to automate the process
+                    of cleaning and preprocessing large datasets.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full dark:bg-gray-600 dark:text-gray-200"
+                      >SQL</span
+                    >
+                    <span
+                      class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900/50 dark:text-yellow-300"
+                      >Python</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ABOUT ME SECTION: A more personal introduction. -->
+        <section id="about" class="bg-slate-50 dark:bg-gray-900 py-20 md:py-24">
+          <div class="container mx-auto px-6">
+            <div
+              class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12"
+            >
+              <div class="md:w-1/3">
+                <!-- Update the `src` with a path to your photo. -->
+                <img
+                  src="https://placehold.co/400x400/e2e8f0/334155?text=MNCM"
+                  alt="Muhammad Najil C M Portrait"
+                  class="rounded-full shadow-lg mx-auto"
+                />
+              </div>
+              <div class="md:w-2/3 text-center md:text-left">
+                <h2
+                  class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+                >
+                  About Me
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                  Hello! I'm Muhammad Najil C M, a data analyst driven by
+                  curiosity and a love for problem-solving. My journey into data
+                  began with a fascination for how numbers can tell a story. I
+                  thrive on diving into complex datasets, cleaning and
+                  structuring them, and then using tools like Python, SQL, and
+                  Power BI to extract meaningful insights.
+                </p>
+                <p class="text-gray-600 dark:text-gray-400 mb-8">
+                  I believe that data is the key to unlocking smarter strategies
+                  and better outcomes. Whether it's building an intuitive
+                  dashboard or a predictive model, my goal is always to present
+                  data in a way that is clear, concise, and compelling. When I'm
+                  not analyzing data, I enjoy exploring new technologies and
+                  learning about the latest trends in the data science field.
+                </p>
+                <a
+                  href="./assets/muhammad_najil_cm_cv.pdf"
+                  download="Muhammad_Najil_CM_CV.pdf"
+                  class="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-600 transition-transform transform hover:scale-105 inline-block"
+                  >Download My CV</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT SECTION: Contact form and social media links. -->
+        <section id="contact" class="py-20 md:py-24 bg-white dark:bg-gray-800">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
+              >
+                Let's Connect
+              </h2>
+              <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">
+                Have a project in mind or want to chat about data? Reach out!
+              </p>
+            </div>
+            <div class="max-w-2xl mx-auto">
+              <!-- Note: This form is for display only. To make it functional, you need a backend service like Formspree. -->
+              <form
+                action="#"
+                method="POST"
+                class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md"
+              >
+                <div class="mb-4">
+                  <label
+                    for="name"
+                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2"
+                    >Name</label
+                  ><input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="w-full px-4 py-2 border rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <label
+                    for="email"
+                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2"
+                    >Email</label
+                  ><input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="w-full px-4 py-2 border rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+                <div class="mb-6">
+                  <label
+                    for="message"
+                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2"
+                    >Message</label
+                  ><textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    class="w-full px-4 py-2 border rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  ></textarea>
+                </div>
+                <div class="text-center">
+                  <button
+                    type="submit"
+                    class="w-full bg-blue-600 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </form>
+              <div class="text-center mt-8">
+                <p class="text-gray-600 dark:text-gray-400">
+                  You can also find me on:
+                </p>
+                <div class="flex justify-center space-x-6 mt-4">
+                  <!-- Update `href` with your social media profile URLs. -->
+                  <a
+                    href="#"
+                    target="_blank"
+                    class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition"
+                    ><svg
+                      class="w-8 h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12 2C6.477 2 2 6.477 2 12.013c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.013C22 6.477 17.523 2 12 2z"
+                        clip-rule="evenodd"
+                      /></svg
+                  ></a>
+                  <a
+                    href="#"
+                    target="_blank"
+                    class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition"
+                    ><svg
+                      class="w-8 h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                      /></svg
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- FOOTER -->
+      <footer class="bg-gray-900 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+          <p>&copy; 2024 Muhammad Najil C M. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PROJECT PAGES CONTAINER                                             -->
+    <!-- This container holds the detailed project pages, hidden by default. -->
+    <!-- =================================================================== -->
+    <div id="project-pages-container">
+      <!-- PROJECT PAGE 1: Edit the content below for your first project. -->
+      <div
+        id="project-page-1"
+        class="project-page bg-slate-50 dark:bg-gray-900"
+      >
+        <div class="container mx-auto px-6 py-20 md:py-24">
+          <button
+            class="back-to-portfolio-btn mb-8 inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold"
+          >
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              ></path>
+            </svg>
+            Back to Portfolio
+          </button>
+          <h1
+            class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+          >
+            Interactive Sales Dashboard
+          </h1>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">
+            A comprehensive dashboard for real-time sales tracking and analysis.
+          </p>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-2">
+              <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                Project Overview
+              </h2>
+              <p class="text-gray-700 dark:text-gray-300 mb-4">
+                Developed a dynamic and interactive sales dashboard in Power BI
+                to provide stakeholders with a clear view of key performance
+                indicators (KPIs), sales trends over time, and regional
+                performance breakdowns. The goal was to replace static, weekly
+                reports with a live, on-demand analytics tool.
+              </p>
+              <p class="text-gray-700 dark:text-gray-300 mb-8">
+                The dashboard integrated data from multiple SQL databases, which
+                was cleaned and transformed to ensure accuracy. It features
+                several interactive elements like slicers for date ranges,
+                product categories, and regions, allowing for deep-dive
+                analysis. The insights from this dashboard helped the sales team
+                identify top-performing products and underperforming regions,
+                leading to a more targeted sales strategy.
+              </p>
+              <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                Image Gallery
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <img
+                  src="https://placehold.co/600x400/3b82f6/ffffff?text=Dashboard+View"
+                  alt="Dashboard View"
+                  class="rounded-lg shadow-md w-full h-auto"
+                />
+                <img
+                  src="https://placehold.co/600x400/3b82f6/ffffff?text=Regional+Filter"
+                  alt="Regional Filter"
+                  class="rounded-lg shadow-md w-full h-auto"
+                />
+              </div>
+            </div>
+            <div>
+              <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3
+                  class="text-xl font-bold text-gray-800 dark:text-white mb-4"
+                >
+                  Tools & Technologies
+                </h3>
+                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                  <li class="flex items-center">
+                    <span class="bg-blue-500 w-2 h-2 rounded-full mr-3"></span
+                    >Power BI
+                  </li>
+                  <li class="flex items-center">
+                    <span class="bg-blue-500 w-2 h-2 rounded-full mr-3"></span
+                    >SQL
+                  </li>
+                  <li class="flex items-center">
+                    <span class="bg-blue-500 w-2 h-2 rounded-full mr-3"></span
+                    >Excel
+                  </li>
+                  <li class="flex items-center">
+                    <span class="bg-blue-500 w-2 h-2 rounded-full mr-3"></span
+                    >Data Modeling
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mt-8"
+              >
+                <h3
+                  class="text-xl font-bold text-gray-800 dark:text-white mb-4"
+                >
+                  Other Links
+                </h3>
+                <a
+                  href="#"
+                  class="block w-full text-center bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+                  >Live Demo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT PAGE 2: This is a placeholder. Edit its content. -->
+      <div
+        id="project-page-2"
+        class="project-page bg-slate-50 dark:bg-gray-900"
+      ></div>
+      <!-- PROJECT PAGE 3: This is a placeholder. Edit its content. -->
+      <div
+        id="project-page-3"
+        class="project-page bg-slate-50 dark:bg-gray-900"
+      ></div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- JAVASCRIPT LOGIC                                                    -->
+    <!-- Contains all the interactive functionality for the site.            -->
+    <!-- =================================================================== -->
+    <script>
+      // --- Dark Mode Toggle Logic ---
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      const themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
+
+      // This function applies the correct theme (light/dark) when the page loads.
+      function applyTheme() {
+        // Check if a theme is saved in the browser's local storage.
+        if (
+          localStorage.getItem("theme") === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          // If dark, show the light icon (sun) and hide the dark icon (moon).
+          themeToggleLightIcon.classList.remove("hidden");
+          themeToggleDarkIcon.classList.add("hidden");
+          document.documentElement.classList.add("dark");
+        } else {
+          // If light, show the dark icon and hide the light icon.
+          themeToggleDarkIcon.classList.remove("hidden");
+          themeToggleLightIcon.classList.add("hidden");
+          document.documentElement.classList.remove("dark");
+        }
+      }
+
+      applyTheme(); // Run the function on initial page load.
+
+      // Add a click event listener to the theme toggle button.
+      themeToggleBtn.addEventListener("click", function () {
+        // Swap the visibility of the sun and moon icons.
+        themeToggleDarkIcon.classList.toggle("hidden");
+        themeToggleLightIcon.classList.toggle("hidden");
+
+        // Check if a theme is already saved in local storage.
+        if (localStorage.getItem("theme")) {
+          // If the current theme is light, switch to dark.
+          if (localStorage.getItem("theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark"); // Save the new preference.
+          } else {
+            // Otherwise, switch to light.
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light"); // Save the new preference.
+          }
+          // If no theme is saved, detect the current state and switch.
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+          }
+        }
+      });
+
+      // --- Page Navigation Logic (for single-page app feel) ---
+      const mainContent = document.getElementById("main-content");
+      const projectPagesContainer = document.getElementById(
+        "project-pages-container"
+      );
+      const mainHeader = document.getElementById("main-header");
+
+      // This function hides the main portfolio and shows a specific project page.
+      function showProjectPage(projectNumber) {
+        mainContent.style.display = "none"; // Hide the main content.
+        document.querySelectorAll(".project-page").forEach((page) => {
+          page.style.display = "none";
+        }); // Hide all project pages.
+        const projectPage = document.getElementById(
+          `project-page-${projectNumber}`
+        );
+        if (projectPage) {
+          projectPage.style.display = "block"; // Show the selected project page.
+          mainHeader.style.display = "none"; // Hide the header for a focused view.
+          window.scrollTo(0, 0); // Scroll to the top.
+        }
+      }
+
+      // This function shows the main portfolio and hides the project pages.
+      function showMainPage() {
+        mainContent.style.display = "block";
+        mainHeader.style.display = "block";
+        document.querySelectorAll(".project-page").forEach((page) => {
+          page.style.display = "none";
+        });
+      }
+
+      // Add click listeners to all project cards.
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const projectNumber = card.getAttribute("data-project");
+          showProjectPage(projectNumber);
+        });
+      });
+
+      // Add click listeners to all "Back to Portfolio" buttons inside project pages.
+      document.querySelectorAll(".back-to-portfolio-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          showMainPage();
+        });
+      });
+
+      // Make the home icon in the header return to the main page.
+      document.getElementById("home-link").addEventListener("click", (e) => {
+        e.preventDefault(); // Stop the link from reloading the page.
+        showMainPage();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // --- Mobile Menu Toggle Logic ---
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      // Toggle the 'hidden' class on the mobile menu when the hamburger icon is clicked.
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close the mobile menu when one of its links is clicked.
+      const mobileMenuLinks = mobileMenu.getElementsByTagName("a");
+      for (let link of mobileMenuLinks) {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      }
+
+      // --- Placeholder Content for Project Pages ---
+      // This script populates project pages 2 and 3 with placeholder content.
+      // You should replace the HTML in the `project-page-2` and `project-page-3` divs
+      // with your actual project details.
+      const project1HTML = document.getElementById("project-page-1").innerHTML;
+      document.getElementById("project-page-2").innerHTML = project1HTML
+        .replace(/Interactive Sales Dashboard/g, "Customer Churn Analysis")
+        .replace(
+          /A comprehensive dashboard for real-time sales tracking and analysis./g,
+          "A predictive model to identify at-risk customers."
+        );
+      document.getElementById("project-page-3").innerHTML = project1HTML
+        .replace(
+          /Interactive Sales Dashboard/g,
+          "Automated Data Cleaning Pipeline"
+        )
+        .replace(
+          /A comprehensive dashboard for real-time sales tracking and analysis./g,
+          "An automated pipeline to ensure data quality and efficiency."
+        );
+    </script>
+  </body>
+</html>
